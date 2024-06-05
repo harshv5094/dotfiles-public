@@ -25,3 +25,5 @@ feh
 gimp
 ufw
 yt-dlp
+emacs
+libtool
