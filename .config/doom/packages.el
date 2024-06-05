@@ -57,3 +57,4 @@
 (package! emojify)
 (package! rainbow-mode)
 (package! peep-dired)
+(package! all-the-icons-dired)
