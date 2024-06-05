@@ -24,6 +24,8 @@
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
+(setq doom-localleader-key "\\")
+
 (xterm-mouse-mode 1)
 
 (setq minimap-window-location 'right)
@@ -41,7 +43,7 @@
       :desc "Open directory in neotree" "d n" #'neotree-dir)
 
 (map! :leader
-      :desc "Org babel Tangle" "m B" #'org-babel-tangle)
+      :desc "Org babel Tangle" "\\ B" #'org-babel-tangle)
 
 (after! org
   (setq org-directory "~/org"
