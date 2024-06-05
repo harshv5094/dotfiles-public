@@ -169,12 +169,14 @@
       eshell-scroll-to-bottom-on-input t
       eshell-destroy-buffer-when-process-dies t
       eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
-(map! :leader
-      (:prefix ("e" . "Eshell")
-      ;; :desc "Eshell"                 "s" #'eshell
-      ;; :desc "Eshell popup toggle"    "t" #'+eshell/toggle
-      ;; :desc "Counsel eshell history" "h" #'counsel-esh-history
-      ))
+
+;; Eshell Mapping
+;; (map! :leader
+;;       (:prefix ("e" . "Eshell")
+;;       :desc "Eshell"                 "s" #'eshell
+;;       :desc "Eshell popup toggle"    "t" #'+eshell/toggle
+;;       :desc "Counsel eshell history" "h" #'counsel-esh-history))
+
 ;; For Vterm Mapping
 (map! :leader
       (:prefix ("v". "Vterm")
