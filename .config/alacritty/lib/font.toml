@@ -1,0 +1,10 @@
+[font]
+normal.family = "JetBrainsMono NF"
+normal.style = "Bold"
+bold.family = "JetBrainsMono NF"
+bold.style = "ExtraBold"
+italic.family = "JetBrainsMono NF"
+italic.style = "Italic"
+bold_italic.family = "JetBrainsMono NF"
+bold_italic.style = "Bold Italic"
+size = 11.8

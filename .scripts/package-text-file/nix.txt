@@ -1,0 +1,10 @@
+nixpkgs.fzf
+nixpkgs.bat
+nixpkgs.eza
+nixpkgs.go
+nixpkgs.neovim
+nixpkgs.tmux
+nixpkgs.fd
+nixpkgs.ripgrep
+nixpkgs.lazygit
+nixpkgs.cargo

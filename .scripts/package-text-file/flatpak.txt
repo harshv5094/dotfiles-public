@@ -1,0 +1,10 @@
+org.mozilla.firefox
+org.mozilla.Thunderbird
+com.google.Chrome
+md.obsidian.Obsidian
+com.mattjakeman.ExtensionManager
+com.discordapp.Discord
+org.libreoffice.LibreOffice
+com.github.tchx84.Flatseal
+io.github.realmazharhussain.GdmSettings
+fr.romainvigier.MetadataCleaner

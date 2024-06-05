@@ -1,0 +1,250 @@
+#+TITLE: Harsh Vyapari's Doom Emacs Configuration
+#+AUTHOR: Harsh Vyapari (harshv5094)
+#+EMAIL: harshv5094@gmail.com
+#+DESCRIPTION: My personal doom emacs configuration file
+#+STARTUP: showeverything
+
+* Table of Contents :toc:
+- [[#about-this-config][About This Config]]
+- [[#basic-necessary-configuration][Basic Necessary Configuration]]
+  - [[#relative-line-numbers][Relative Line Numbers]]
+  - [[#custom-doom-emacs-theme][Custom Doom Emacs Theme]]
+  - [[#default-font-for-doom-emacs][Default font for DOOM Emacs]]
+  - [[#doom-modeline][Doom Modeline]]
+  - [[#setting-default-org-location][Setting Default org location]]
+- [[#beacon][Beacon]]
+- [[#clippy][Clippy]]
+- [[#custom-banner][Custom Banner]]
+- [[#emojis][Emojis]]
+- [[#mouse-support][Mouse Support]]
+- [[#minimap][Minimap]]
+- [[#neotree][Neotree]]
+- [[#org-mode][ORG MODE]]
+  - [[#org-agenda][Org Agenda]]
+  - [[#org-journal][Org Journal]]
+- [[#rainbow-mode][RAINBOW MODE]]
+- [[#terminal-shells][Terminal Shells]]
+
+* About This Config
+This is my custom config I'm writing in doom emacs
+
+* Basic Necessary Configuration
+This are the necessary configuration that I need in my config
+
+** Relative Line Numbers
+Here we are setting relative line number as we setup in vim
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 'relative)
+#+end_src
+
+** Custom Doom Emacs Theme
+Here we are setting custom doom emacs theme for your setup
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-one)
+#+end_src
+
+** Default font for DOOM Emacs
+Changing the default font of DOOM Emacs
+#+begin_src emacs-lisp
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold :slant 'italic))
+#+end_src
+
+** Doom Modeline
+The modeline is the bottom status bar that appears in Emacs windows.
+For more information on what is available to configure in the Doom modeline, check out: https://github.com/seagle0128/dooom-modeline
+#+begin_src emacs-lisp
+(setq doom-modeline-height 30           ;; sets modeline height
+      doom-modeline-bar-width 5)        ;; sets right bar width
+#+end_src
+
+** Setting Default org location
+If you are using org and you don't want your files in the default location below,
+change `org-directory`. It must be set before org loads!
+#+begin_src emacs-lisp
+(setq org-directory "~/org/")
+#+end_src
+
+* Beacon
+Never loose your cursor. When you scroll, yourr cursor will shine! This is a global mirror. Turn it on everywhere with:
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+* Clippy
+Gives us a popup box with "Clippy, the paper clip". You can make him say various thing by calling =clippy-say= function.
+But the more useful functions are the two describe functions provided: =clippy-describe-function= and =clippy-describe-variable=.
+Hit the appropriate keybindings while the point is over a function/variable to call it.
+A popup with helpful clippy will appear, telling you about the function/variable (using describe-function and describe-variable rescpectively).
+
+| COMMAND                  | DESCRIPTION                           | KEYBINDINGS |
+| -------                  | -----------                           | ----------- |
+| clippy-describe-function | Clippy describes function under point | SPC c h f   |
+| clippy-describe-variable | Clippy describes variable under point | SPC c h v   |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("c h" . "Help info from Clippy")
+       :desc "Clippy describes function under point" "f" #'clippy-describe-function
+       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
+#+end_src
+
+* Custom Banner
+To change into custom banner just change `fancy-splash-image`:
+#+begin_src emacs-lisp
+(setq fancy-splash-image "~/.config/doom/banner/doom-emacs-dash.png")
+#+end_src
+
+* Emojis
+Emojify is an Emacs extensions to display emojis. It can display github style emojis like :smile: or plain ascii ones like :)
+#+begin_src emacs-lisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+
+* Mouse Support
+Adding mouse support in the terminal version of the emacs
+#+begin_src emacs-lisp
+(xterm-mouse-mode 1)
+#+end_src
+
+* Minimap
+A minimap sidebar displaying a smaller version of the current buffer on either the left or right side.
+It highlights the currently shown region and updates its position automatically.
+Be aware this minimap program does not work in Org documents.
+
+| COMMAND      | DESCRIPTION         | KEYMAP  |
+| -------      | -----------         | ------- |
+| minimap-mode | Toggle minimap-mode | SPC t m |
+
+#+begin_src emacs-lisp
+(setq minimap-window-location 'right)
+(map! :leader
+      (:prefix ("t" . "toggle")
+       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+#+end_src
+
+* Neotree
+Neotree is a file viewer. When you open neotree, it jumps to the current file thanks to neo-smart-open.
+The neo-window-fixed-size setting makes the neotree width be adjustable. Doom Emacs had no keybinding set for neotree.
+Since Doom Emacs uses `SPC t` for `toggle` keybindings, I used `SPC t n` for toggle-neotree.
+
+| COMMAND        | DESCRIPTION                | KEYBINDINGS |
+| -------        | -----------                | ----------- |
+| neotree-toggle | Toggles neotree            | SPC t n     |
+| neotree-dir    | Opens Directory in neotree | SPC d n     |
+
+#+begin_src emacs-lisp
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
+      :desc "Open directory in neotree" "d n" #'neotree-dir)
+#+end_src
+
+* ORG MODE
+I'm wrapping most of this block in (after! org). Without this, my settings might be evaluated too early,
+which will result in my settings being overwritten by Doom's defaults.
+I have also enabled org-journal, org-superstar, and org-roam by adding (+journal +pretty +roam2) to the org section of my Doom Emacs
+init.el.
+
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Org babel Tangle" "m B" #'org-babel-tangle)
+
+(after! org
+  (setq org-directory "~/org"
+        org-default-notes-file (expand-file-name "notes.org" org-directory)
+        org-ellipsis " ▼ "
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-log-done 'time
+        org-hide-emphasis-markers t
+        ;; ex. of org-link-abbrev-alist in action
+        ;; [[arch-wiki:Name_of_Page][Description]]
+        org-link-abbrev-alist  ;This overwrites the default Doom org-link-abbrev-list
+        '(("google" . "https://www.google.com/search?q=")
+          ("wiki" . "https://en.wikipedia.org/wiki/"))
+        org-table-convert-region-max-lines 2000
+        org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+          '((sequence
+             "TODO(t)"           ; A task that is ready to be tackled
+             "BLOG(b)"           ; Blog writing assignments
+             "GYM(g)"            ; Things to accomplish at the gym
+             "PROJ(p)"           ; A project that contains other tasks
+             "VIDEO(v)"          ; Video assignments
+             "WAIT(w)"           ; Something is holding up this task
+             "|"                 ; The pipe necessary to separate "active" states and "inactive" states
+             "DONE(d)"           ; Task has been completed
+             "CANCELLED"))))    ; Task has been cancelled
+#+end_src
+
+** Org Agenda
+#+begin_src emacs-lisp
+(after! org
+  (setq org-agenda-files '("~/org/agenda.org")))
+
+(setq
+   org-fancy-priorities-list '("🟥" "🟧" "🟨")
+   org-priority-faces
+   '((?A :foreground "#ff6c6b" :weight bold)
+     (?B :foreground "#98be65" :weight bold)
+     (?C :foreground "#c678dd" :weight bold))
+   org-agenda-block-separator 8411)
+
+(setq org-agenda-custom-commands
+      '(("v" "A better agenda view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (tags "PRIORITY=\"B\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Medium-priority unfinished tasks:")))
+          (tags "PRIORITY=\"C\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Low-priority unfinished tasks:")))
+          (tags "customtag"
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Tasks marked with customtag:")))
+
+          (agenda "")
+          (alltodo "")))))
+#+end_src
+
+** Org Journal
+#+begin_src emacs-lisp
+(setq org-journal-dir "~/org/journal"
+      org-journal-date-prefix "* "
+      org-journal-time-prefix "** "
+      org-journal-date-format "%B %d %Y (%A)"
+      org-journal-file-format "%Y-%m-%d")
+#+end_src
+
+* RAINBOW MODE
+Rainbow mode displays the actual color for any hex value color. It's such a nice feature that I wanted to turned on all the time,
+regardless of what mode I am in. The following creates a global minor mode for rainbow-mode and enables it
+(exception: org-agenda-mode since rainbow-mode destroys all highlighting in org-agenda.)
+#+begin_src emacs-lisp
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda ()
+    (when (not (memq major-mode
+                (list 'org-agenda-mode)))
+     (rainbow-mode 1))))
+(global-rainbow-mode 1 )
+#+end_src
+
+* Terminal Shells
+Settings for the various shells and terminal emulators within Emacs.
+| COMMAND      | DESCRIPTION               | KEYBINDINGS |
+| -------      | -----------               | ----------- |
+| vterm/toggle | Toggle vterm popup window | SPC v t     |
+
+#+begin_src emacs-lisp
+(setq shell-file-name "/bin/fish"
+      vterm-max-scrollback 5000)
+(map! :leader
+      :desc "Vterm Popup Toggle" "v t" #'+vterm/toggle)
+#+end_src

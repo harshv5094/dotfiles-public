@@ -1,0 +1,15 @@
+import = [
+  "~/.config/alacritty/lib/window.toml",
+  "~/.config/alacritty/lib/font.toml",
+  "~/.config/alacritty/lib/colors/argonaut.toml",
+]
+
+# Enable clipboard support
+selection.save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
