@@ -17,6 +17,7 @@
   - [[#default-bookmarks-path][Default bookmarks path]]
 - [[#clippy][Clippy]]
 - [[#custom-banner][Custom Banner]]
+- [[#dired][Dired]]
 - [[#emojis][Emojis]]
 - [[#changing-local-leader-key][Changing Local Leader Key]]
 - [[#mouse-support][Mouse Support]]
@@ -104,6 +105,25 @@ A popup with helpful clippy will appear, telling you about the function/variable
 To change into custom banner just change `fancy-splash-image`:
 #+begin_src emacs-lisp
 (setq fancy-splash-image "~/.config/doom/banner/doom-emacs-dash.png")
+#+end_src
+
+* Dired
+Dired is the file manager within Emacs. Below, I setup keybindings for image previews (peep-dired). Doom Emacs does not use =SPC d= for any of its keybindings, So I've chosen the format of =SPC d + `key`=.
+
+| COMMAND    | DESCRIPTION                        | KEYBINDINGS |
+| -------    | -----------                        | ----------- |
+| dired      | Open dired file manager            | SPC d d     |
+| dired-jump | Jump to current directory in dired | SPC d j     |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("d". "dired")
+       :desc "Open Dired" "d" #'dired
+       :desc "Dired Jump To Current Directory" "j" #'dired-jump)
+      (:after dired
+        (:map dired-mode-map
+         :desc "Peep-dired image previews" "d p" #'peep-dired
+         :desc "Dired view file" "d v" #'dired-view-file)))
 #+end_src
 
 * Emojis

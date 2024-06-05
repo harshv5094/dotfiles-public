@@ -21,6 +21,15 @@
 
 (setq fancy-splash-image "~/.config/doom/banner/doom-emacs-dash.png")
 
+(map! :leader
+      (:prefix ("d". "dired")
+       :desc "Open Dired" "d" #'dired
+       :desc "Dired Jump To Current Directory" "j" #'dired-jump)
+      (:after dired
+        (:map dired-mode-map
+         :desc "Peep-dired image previews" "d p" #'peep-dired
+         :desc "Dired view file" "d v" #'dired-view-file)))
+
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 

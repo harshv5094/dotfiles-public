@@ -51,5 +51,9 @@
 
 (package! beacon)
 (package! clippy)
+(package! dired-open)
+(package! dired-subtree)
+(package! dirvish)
 (package! emojify)
 (package! rainbow-mode)
+(package! peep-dired)
