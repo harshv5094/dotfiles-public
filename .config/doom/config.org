@@ -29,7 +29,7 @@
 - [[#org-mode][ORG MODE]]
   - [[#org-agenda][Org Agenda]]
   - [[#org-journal][Org Journal]]
-- [[#rainbow-mode][RAINBOW MODE]]
+- [[#rainbow-mode][Rainbow Mode]]
 - [[#terminal-shells][Terminal Shells]]
 
 * About This Config
@@ -64,8 +64,9 @@ Changing the default font of DOOM Emacs
 The modeline is the bottom status bar that appears in Emacs windows.
 For more information on what is available to configure in the Doom modeline, check out: https://github.com/seagle0128/dooom-modeline
 #+begin_src emacs-lisp
-(setq doom-modeline-height 30           ;; sets modeline height
-      doom-modeline-bar-width 5)        ;; sets right bar width
+(setq doom-modeline-height 30                   ;; sets modeline height
+      doom-modeline-env-load-string "..."       ;; sets modeline loading string
+      doom-modeline-bar-width 5)                ;; sets right bar width
 #+end_src
 
 ** Setting Default org location
@@ -140,22 +141,23 @@ Dired is the file manager within Emacs. Below, I setup keybindings for image pre
 
 *** Basic Dired Commands
 
-| COMMAND                | DESCRIPTION                                 | KEYBINDING |
-|------------------------+---------------------------------------------+------------|
-| dired-view-file        | /View file in dired/                          | SPC d v    |
-| dired-up-directory     | /Go up in directory tree/                     | h          |
-| dired-find-file        | /Go down in directory tree (or open if file)/ | l          |
-| dired-next-line        | /Move down to next line/                      | j          |
-| dired-previous-line    | /Move up to previous line/                    | k          |
-| dired-mark             | /Mark file at point/                          | m          |
-| dired-unmark           | /Unmark file at point/                        | u          |
-| dired-do-copy          | /Copy current file or marked files/           | C          |
-| dired-do-rename        | /Rename current file or marked files/         | R          |
-| dired-hide-details     | /Toggle detailed listings on/off/             | (          |
-| dired-git-info-mode    | /Toggle git information on/off/               | )          |
-| dired-create-directory | /Create new empty directory/                  | +          |
-| dired-diff             | /Compare file at point with another/          | =          |
-| dired-subtree-toggle   | /Toggle viewing subtree at point/             | TAB        |
+| COMMAND                 | DESCRIPTION                                 | KEYBINDING |
+|-------------------------+---------------------------------------------+------------|
+| dired-view-file         | /View file in dired/                          | SPC d v    |
+| dired-up-directory      | /Go up in directory tree/                     | h          |
+| dired-find-file         | /Go down in directory tree (or open if file)/ | l          |
+| dired-next-line         | /Move down to next line/                      | j          |
+| dired-previous-line     | /Move up to previous line/                    | k          |
+| dired-mark              | /Mark file at point/                          | m          |
+| dired-unmark            | /Unmark file at point/                        | u          |
+| dired-do-copy           | /Copy current file or marked files/           | C          |
+| dired-do-rename         | /Rename current file or marked files/         | R          |
+| dired-hide-details      | /Toggle detailed listings on/off/             | (          |
+| dired-git-info-mode     | /Toggle git information on/off/               | )          |
+| dired-create-directory  | /Create new empty directory/                  | +          |
+| dired-create-empty-file | /Creates new empty file/                      | N          |
+| dired-diff              | /Compare file at point with another/          | =          |
+| dired-subtree-toggle    | /Toggle viewing subtree at point/             | TAB        |
 
 *** Dired Commands using regex
 
@@ -194,6 +196,7 @@ Dired is the file manager within Emacs. Below, I setup keybindings for image pre
   (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
   (kbd "Z") 'dired-do-compress
   (kbd "+") 'dired-create-directory
+  (kbd "N") 'dired-create-empty-file
   (kbd "-") 'dired-do-kill-lines
   (kbd "% l") 'dired-downcase
   (kbd "% m") 'dired-mark-files-regexp
@@ -349,7 +352,7 @@ init.el
       org-journal-file-format "%Y-%m-%d")
 #+end_src
 
-* RAINBOW MODE
+* Rainbow Mode
 Rainbow mode displays the actual color for any hex value color. It's such a nice feature that I wanted to turned on all the time,
 regardless of what mode I am in. The following creates a global minor mode for rainbow-mode and enables it
 (exception: org-agenda-mode since rainbow-mode destroys all highlighting in org-agenda.)

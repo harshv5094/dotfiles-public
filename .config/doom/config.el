@@ -8,8 +8,9 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold :slant 'italic))
 
-(setq doom-modeline-height 30           ;; sets modeline height
-      doom-modeline-bar-width 5)        ;; sets right bar width
+(setq doom-modeline-height 30                   ;; sets modeline height
+      doom-modeline-env-load-string "..."       ;; sets modeline loading string
+      doom-modeline-bar-width 5)                ;; sets right bar width
 
 (setq org-directory "~/org/")
 
@@ -51,6 +52,7 @@
   (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
   (kbd "Z") 'dired-do-compress
   (kbd "+") 'dired-create-directory
+  (kbd "N") 'dired-create-empty-file
   (kbd "-") 'dired-do-kill-lines
   (kbd "% l") 'dired-downcase
   (kbd "% m") 'dired-mark-files-regexp
