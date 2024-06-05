@@ -1,7 +1,8 @@
 #+TITLE: Harsh Vyapari's Doom Emacs Configuration
 #+AUTHOR: Harsh Vyapari (harshv5094)
 #+EMAIL: harshv5094@gmail.com
-#+DESCRIPTION: My personal doom emacs configuration file
+#+DATE: <2024-06-05 Wed>
+#+DESCRIPTION: My personal doom emacs configuration file, inspired from distrotube's configuration
 #+STARTUP: showeverything
 
 * Table of Contents :toc:
@@ -363,15 +364,31 @@ Settings for the various shells and terminal emulators within Emacs.
 
 | COMMAND             | DESCRIPTION                | KEYBINDING |
 |---------------------+----------------------------+------------|
-# | eshell              | /Launch the eshell/          | SPC e s    |
-# | +eshell/toggle      | /Toggle eshell popup window/ | SPC e t    |
-# | counsel-esh-history | /Browse the eshell history/  | SPC e h    |
+| eshell              | /Launch the eshell/          | SPC e s    |
+| +eshell/toggle      | /Toggle eshell popup window/ | SPC e t    |
+| counsel-esh-history | /Browse the eshell history/  | SPC e h    |
 | +vterm/toggle       | /Toggle vterm popup window/  | SPC v t    |
 
 
 #+begin_src emacs-lisp
 (setq shell-file-name "/bin/fish"
       vterm-max-scrollback 5000)
+(setq eshell-rc-script "~/.config/doom/eshell/profile"
+      echell-aliases-file "~/.config/doom/eshell/aliases"
+      eshell-history-size 5000
+      eshell-buffer-maximum-lines 5000
+      eshell-hist-ignoredups t
+      eshell-scroll-to-bottom-on-input t
+      eshell-destroy-buffer-when-process-dies t
+      eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
 (map! :leader
-      :desc "Vterm Popup Toggle" "v t" #'+vterm/toggle)
+      (:prefix ("e" . "Eshell")
+      ;; :desc "Eshell"                 "s" #'eshell
+      ;; :desc "Eshell popup toggle"    "t" #'+eshell/toggle
+      ;; :desc "Counsel eshell history" "h" #'counsel-esh-history
+      ))
+;; For Vterm Mapping
+(map! :leader
+      (:prefix ("v". "Vterm")
+       :desc "Vterm Popup Toggle" "t" #'+vterm/toggle))
 #+end_src
