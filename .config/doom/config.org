@@ -13,6 +13,8 @@
   - [[#doom-modeline][Doom Modeline]]
   - [[#setting-default-org-location][Setting Default org location]]
 - [[#beacon][Beacon]]
+- [[#bookmarks][Bookmarks]]
+  - [[#default-bookmarks-path][Default bookmarks path]]
 - [[#clippy][Clippy]]
 - [[#custom-banner][Custom Banner]]
 - [[#emojis][Emojis]]
@@ -69,6 +71,14 @@ change `org-directory`. It must be set before org loads!
 Never loose your cursor. When you scroll, yourr cursor will shine! This is a global mirror. Turn it on everywhere with:
 #+begin_src emacs-lisp
 (beacon-mode 1)
+#+end_src
+
+* Bookmarks
+
+** Default bookmarks path
+We are setting default bookmarks path for the file
+#+begin_src emacs-lisp
+(setq bookmark-default-file "~/.config/doom/bookmarks")
 #+end_src
 
 * Clippy

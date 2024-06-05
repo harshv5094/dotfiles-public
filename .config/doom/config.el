@@ -12,6 +12,8 @@
 
 (beacon-mode 1)
 
+(setq bookmark-default-file "~/.config/doom/bookmarks")
+
 (map! :leader
       (:prefix ("c h" . "Help info from Clippy")
        :desc "Clippy describes function under point" "f" #'clippy-describe-function
