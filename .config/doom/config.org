@@ -18,6 +18,8 @@
 - [[#clippy][Clippy]]
 - [[#custom-banner][Custom Banner]]
 - [[#dired][Dired]]
+  - [[#keybindings-to-open-dired][Keybindings to open Dired]]
+  - [[#keybindings-within-dired][Keybindings within Dired]]
 - [[#emojis][Emojis]]
 - [[#changing-local-leader-key][Changing Local Leader Key]]
 - [[#mouse-support][Mouse Support]]
@@ -44,7 +46,7 @@ Here we are setting relative line number as we setup in vim
 ** Custom Doom Emacs Theme
 Here we are setting custom doom emacs theme for your setup
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tokyo-night)
 #+end_src
 
 ** Default font for DOOM Emacs
@@ -89,10 +91,11 @@ But the more useful functions are the two describe functions provided: =clippy-d
 Hit the appropriate keybindings while the point is over a function/variable to call it.
 A popup with helpful clippy will appear, telling you about the function/variable (using describe-function and describe-variable rescpectively).
 
-| COMMAND                  | DESCRIPTION                           | KEYBINDINGS |
-| -------                  | -----------                           | ----------- |
-| clippy-describe-function | Clippy describes function under point | SPC c h f   |
-| clippy-describe-variable | Clippy describes variable under point | SPC c h v   |
+| COMMAND                  | DESCRIPTION                           | KEYBINDING |
+|--------------------------+---------------------------------------+------------|
+| clippy-describe-function | /Clippy describes function under point/ | SPC c h f  |
+| clippy-describe-variable | /Clippy describes variable under point/ | SPC c h v  |
+
 
 #+begin_src emacs-lisp
 (map! :leader
@@ -110,10 +113,13 @@ To change into custom banner just change `fancy-splash-image`:
 * Dired
 Dired is the file manager within Emacs. Below, I setup keybindings for image previews (peep-dired). Doom Emacs does not use =SPC d= for any of its keybindings, So I've chosen the format of =SPC d + `key`=.
 
-| COMMAND    | DESCRIPTION                        | KEYBINDINGS |
-| -------    | -----------                        | ----------- |
-| dired      | Open dired file manager            | SPC d d     |
-| dired-jump | Jump to current directory in dired | SPC d j     |
+** Keybindings to open Dired
+
+| COMMAND    | DESCRIPTION                        | KEYBINDING |
+|------------+------------------------------------+------------|
+| dired      | /Open dired file manager/            | SPC d d    |
+| dired-jump | /Jump to current directory in dired/ | SPC d j    |
+
 
 #+begin_src emacs-lisp
 (map! :leader
@@ -124,6 +130,84 @@ Dired is the file manager within Emacs. Below, I setup keybindings for image pre
         (:map dired-mode-map
          :desc "Peep-dired image previews" "d p" #'peep-dired
          :desc "Dired view file" "d v" #'dired-view-file)))
+#+end_src
+
+** Keybindings within Dired
+
+*** Basic Dired Commands
+
+| COMMAND                | DESCRIPTION                                 | KEYBINDING |
+|------------------------+---------------------------------------------+------------|
+| dired-view-file        | /View file in dired/                          | SPC d v    |
+| dired-up-directory     | /Go up in directory tree/                     | h          |
+| dired-find-file        | /Go down in directory tree (or open if file)/ | l          |
+| dired-next-line        | /Move down to next line/                      | j          |
+| dired-previous-line    | /Move up to previous line/                    | k          |
+| dired-mark             | /Mark file at point/                          | m          |
+| dired-unmark           | /Unmark file at point/                        | u          |
+| dired-do-copy          | /Copy current file or marked files/           | C          |
+| dired-do-rename        | /Rename current file or marked files/         | R          |
+| dired-hide-details     | /Toggle detailed listings on/off/             | (          |
+| dired-git-info-mode    | /Toggle git information on/off/               | )          |
+| dired-create-directory | /Create new empty directory/                  | +          |
+| dired-diff             | /Compare file at point with another/          | =          |
+| dired-subtree-toggle   | /Toggle viewing subtree at point/             | TAB        |
+
+*** Dired Commands using regex
+
+| COMMAND                 | DESCRIPTION                | KEYBINDING |
+|-------------------------+----------------------------+------------|
+| dired-mark-files-regexp | /Mark files using regex/     | % m        |
+| dired-do-copy-regexp    | /Copy files using regex/     | % C        |
+| dired-do-rename-regexp  | /Rename files using regex/   | % R        |
+| dired-mark-files-regexp | /Mark all files using regex/ | * %        |
+
+*** File Permissions and Ownership
+
+| COMMAND         | DESCRIPTION                      | KEYBINDING |
+|-----------------+----------------------------------+------------|
+| dired-do-chgrp  | /Change the group of marked files/ | g G        |
+| dired-do-chmod  | /Change the mode of marked files/  | M          |
+| dired-do-chown  | /Change the owner of marked files/ | O          |
+| dired-do-rename | /Rename file or all marked files/  | R          |
+
+#+begin_src emacs-lisp
+(evil-define-key 'normal dired-mode-map
+  (kbd "M-RET") 'dired-display-file
+  (kbd "h") 'dired-up-directory
+  (kbd "l") 'dired-open-file ; use dired-find-file instead of dired-open.
+  (kbd "m") 'dired-mark
+  (kbd "t") 'dired-toggle-marks
+  (kbd "u") 'dired-unmark
+  (kbd "C") 'dired-do-copy
+  (kbd "D") 'dired-do-delete
+  (kbd "J") 'dired-goto-file
+  (kbd "M") 'dired-do-chmod
+  (kbd "O") 'dired-do-chown
+  (kbd "P") 'dired-do-print
+  (kbd "R") 'dired-do-rename
+  (kbd "T") 'dired-do-touch
+  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
+  (kbd "Z") 'dired-do-compress
+  (kbd "+") 'dired-create-directory
+  (kbd "-") 'dired-do-kill-lines
+  (kbd "% l") 'dired-downcase
+  (kbd "% m") 'dired-mark-files-regexp
+  (kbd "% u") 'dired-upcase
+  (kbd "* %") 'dired-mark-files-regexp
+  (kbd "* .") 'dired-mark-extension
+  (kbd "* /") 'dired-mark-directories
+  (kbd "; d") 'epa-dired-do-decrypt
+  (kbd "; e") 'epa-dired-do-encrypt)
+;; Get file icons in dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; With dired-open plugin, you can launch external programs for certain extensions
+;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
+(setq dired-open-extensions '(("gif" . "sxiv")
+                              ("jpg" . "sxiv")
+                              ("png" . "sxiv")
+                              ("mkv" . "mpv")
+                              ("mp4" . "mpv")))
 #+end_src
 
 * Emojis
@@ -150,9 +234,10 @@ A minimap sidebar displaying a smaller version of the current buffer on either t
 It highlights the currently shown region and updates its position automatically.
 Be aware this minimap program does not work in Org documents.
 
-| COMMAND      | DESCRIPTION         | KEYMAP  |
-| -------      | -----------         | ------- |
-| minimap-mode | Toggle minimap-mode | SPC t m |
+| COMMAND      | DESCRIPTION                               | KEYBINDING |
+|--------------+-------------------------------------------+------------|
+| minimap-mode | /Toggle minimap-mode/                       | SPC t m    |
+
 
 #+begin_src emacs-lisp
 (setq minimap-window-location 'right)
@@ -166,10 +251,10 @@ Neotree is a file viewer. When you open neotree, it jumps to the current file th
 The neo-window-fixed-size setting makes the neotree width be adjustable. Doom Emacs had no keybinding set for neotree.
 Since Doom Emacs uses `SPC t` for `toggle` keybindings, I used `SPC t n` for toggle-neotree.
 
-| COMMAND        | DESCRIPTION                | KEYBINDINGS |
-| -------        | -----------                | ----------- |
-| neotree-toggle | Toggles neotree            | SPC t n     |
-| neotree-dir    | Opens Directory in neotree | SPC d n     |
+| COMMAND        | DESCRIPTION               | KEYBINDING |
+|----------------+---------------------------+------------|
+| neotree-toggle | /Toggle neotree/            | SPC t n    |
+| neotree- dir   | /Open directory in neotree/ | SPC d n    |
 
 #+begin_src emacs-lisp
 (after! neotree
@@ -275,9 +360,14 @@ regardless of what mode I am in. The following creates a global minor mode for r
 
 * Terminal Shells
 Settings for the various shells and terminal emulators within Emacs.
-| COMMAND      | DESCRIPTION               | KEYBINDINGS |
-| -------      | -----------               | ----------- |
-| vterm/toggle | Toggle vterm popup window | SPC v t     |
+
+| COMMAND             | DESCRIPTION                | KEYBINDING |
+|---------------------+----------------------------+------------|
+# | eshell              | /Launch the eshell/          | SPC e s    |
+# | +eshell/toggle      | /Toggle eshell popup window/ | SPC e t    |
+# | counsel-esh-history | /Browse the eshell history/  | SPC e h    |
+| +vterm/toggle       | /Toggle vterm popup window/  | SPC v t    |
+
 
 #+begin_src emacs-lisp
 (setq shell-file-name "/bin/fish"
