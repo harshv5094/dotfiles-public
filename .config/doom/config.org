@@ -21,6 +21,7 @@
 - [[#dired][Dired]]
   - [[#keybindings-to-open-dired][Keybindings to open Dired]]
   - [[#keybindings-within-dired][Keybindings within Dired]]
+  - [[#keybindings-within-dired-with-peep-dired-mode-enabled][Keybindings Within Dired With Peep-Dired-Mode Enabled]]
 - [[#emojis][Emojis]]
 - [[#changing-local-leader-key][Changing Local Leader Key]]
 - [[#mouse-support][Mouse Support]]
@@ -215,6 +216,22 @@ Dired is the file manager within Emacs. Below, I setup keybindings for image pre
                               ("png" . "sxiv")
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
+#+end_src
+
+** Keybindings Within Dired With Peep-Dired-Mode Enabled
+If peep-dired is enabled, you will get image previews as you go up/down with 'j' and 'k'
+
+| COMMAND              | DESCRIPTION                              | KEYBINDING |
+|----------------------+------------------------------------------+------------|
+| peep-dired           | /Toggle previews within dired/             | SPC p d    |
+| peep-dired-next-file | /Move to next file in peep-dired-mode/     | j          |
+| peep-dired-prev-file | /Move to previous file in peep-dired-mode/ | k          |
+
+#+begin_src emacs-lisp
+(evil-define-key 'normal peep-dired-mode-map
+  (kbd "j") 'peep-dired-next-file
+  (kbd "k") 'peep-dired-prev-file)
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 #+end_src
 
 * Emojis

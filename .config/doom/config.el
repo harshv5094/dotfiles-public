@@ -72,6 +72,11 @@
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
+(evil-define-key 'normal peep-dired-mode-map
+  (kbd "j") 'peep-dired-next-file
+  (kbd "k") 'peep-dired-prev-file)
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
