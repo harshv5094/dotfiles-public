@@ -1,6 +1,7 @@
 git
 gh
 fish
+zsh
 neovim
 gnome-tweaks
 make
