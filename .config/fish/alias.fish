@@ -23,6 +23,7 @@ end
 
 alias ide "$HOME/.dotfiles/.scripts/modules/ide.sh"
 alias security "sudo $HOME/.dotfiles/.scripts/modules/security.sh"
+alias zoxide_weight "zoxide query -l -s | less"
 
 # Source python in venv
 alias python-start "source ~/.venv/bin/activate.fish"

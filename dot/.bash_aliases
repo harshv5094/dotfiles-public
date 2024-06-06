@@ -31,5 +31,6 @@ fi
 alias ide="~/.dotfiles/.scripts/ide.sh"
 
 alias ide="~/.dotfiles/.scripts/ide.sh"
+alias zoxide_weight="zoxide query -l -s | less"
 
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
