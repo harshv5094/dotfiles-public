@@ -81,9 +81,17 @@ fi
 # Adding doom emacs export path
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
-  # Initializing zoxide
+# Initializing zoxide
 if [ -x "$(command -v zoxide)" ]; then
 	eval "$(zoxide init --cmd cd bash)"
 fi
+
+# Tokyonight night fzf theme
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+--color=fg:#c0caf5,bg:#1a1b26,hl:#ff9e64 \
+--color=fg+:#c0caf5,bg+:#292e42,hl+:#ff9e64 \
+--color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
+--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
