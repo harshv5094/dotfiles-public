@@ -154,6 +154,9 @@
 	" post install (yarn install | npm install) then load plugin only for editing supported files
 	Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
+  " vim tmux navigation
+  Plug 'christoomey/vim-tmux-navigator'
+
 	call plug#end()
 
 	" Lightline Settings
