@@ -11,20 +11,20 @@ if [ -e "$HOME/.bashrc" ]; then
 	else
 		echo_error "Failed to delete .bashrc"
 	fi
-	echo_info "Copying .bashrc"
-	cp "$HOME/.dotfiles/dot/.bashrc" "$HOME/"
+	echo_info "Linking .bashrc"
+	ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/"
 	if [ $? -eq 0 ]; then
-		echo_success "Successfully copied .bashrc"
+		echo_success "Successfully linked .bashrc"
 	else
-		echo_error "Failed to copy .bashrc"
+		echo_error "Failed to link .bashrc"
 	fi
 else
-	echo_info "Copying .bashrc"
-	cp "$HOME/.dotfiles/dot/.bashrc" "$HOME/"
+	echo_info "Linking .bashrc"
+	ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/"
 	if [ $? -eq 0 ]; then
-		echo_success "Successfully copied .bashrc"
+		echo_success "Successfully linked .bashrc"
 	else
-		echo_error "Failed to copy .bashrc"
+		echo_error "Failed to link .bashrc"
 	fi
 fi
 
@@ -40,7 +40,7 @@ if [ -e "$HOME/.bash_aliases" ]; then
 	echo_info "Linking .bash_aliases"
 	ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	if [ $? -eq 0 ]; then
-		echo_success "Linked .bash_aliases"
+		echo_success "Successfully linked .bash_aliases"
 	else
 		echo_error "Failed to link .bash_aliases"
 	fi
@@ -48,7 +48,7 @@ else
 	echo_info "Linking .bash_aliases"
 	ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	if [ $? -eq 0 ]; then
-		echo_success "Linked .bash_aliases"
+		echo_success "Successfully linked .bash_aliases"
 	else
 		echo_error "Failed to link .bash_aliases"
 	fi
