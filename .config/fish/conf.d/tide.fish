@@ -2,7 +2,7 @@ set -g tide_git_bg_color 268bd2
 set -g tide_git_bg_color_unstable C4A000
 set -g tide_git_bg_color_urgent CC0000
 set -g tide_git_branch_color 000000
-set -g tide_git_color_branch
+set -g tide_git_color_branch 000000
 set -g tide_git_color_conflicted 000000
 set -g tide_git_color_dirty 000000
 set -g tide_git_color_operation 000000
