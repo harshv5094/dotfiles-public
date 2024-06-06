@@ -1,7 +1,7 @@
 import = [
   "~/.config/alacritty/lib/window.toml",
   "~/.config/alacritty/lib/font.toml",
-  "~/.config/alacritty/lib/colors/argonaut.toml",
+  "~/.config/alacritty/lib/font.toml",
 ]
 
 # Enable clipboard support
