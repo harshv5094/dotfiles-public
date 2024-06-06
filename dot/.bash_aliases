@@ -7,9 +7,9 @@ if command -v nvim &>/dev/null; then
 fi
 
 if command -v eza &>/dev/null; then
-	alias ll="eza -lgih"
-	alias ls="eza -gi --icons"
-	alias la="eza -lgaih"
+	alias ll="eza -l -g --icons --header"
+	alias ls="eza -g --icons"
+	alias la="ll -a"
 fi
 
 if command -v lazygit &>/dev/null; then
