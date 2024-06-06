@@ -28,9 +28,35 @@ else
 	fi
 fi
 
+# .zshrc
+if [ -e "$HOME/.zshrc" ]; then
+	echo_danger "Deleting Existing .zshrc"
+	rm "$HOME/.zshrc"
+	if [ $? -eq 0 ]; then
+		echo_success "Deleted .zshrc"
+	else
+		echo_error "Failed to delete .zshrc"
+	fi
+	echo_info "Linking .zshrc"
+	ln -s "$HOME/.dotfiles/dot/.zshrc" "$HOME/"
+	if [ $? -eq 0 ]; then
+		echo_success "Successfully linked .zshrc"
+	else
+		echo_error "Failed to link .zshrc"
+	fi
+else
+	echo_info "Linking .zshrc"
+	ln -s "$HOME/.dotfiles/dot/.zshrc" "$HOME/"
+	if [ $? -eq 0 ]; then
+		echo_success "Successfully linked .zshrc"
+	else
+		echo_error "Failed to link .zshrc"
+	fi
+fi
+
 # .bash_aliases
 if [ -e "$HOME/.bash_aliases" ]; then
-	echo_danger "Deleting Existing .bashrc"
+	echo_danger "Deleting Existing .bash_aliases"
 	rm "$HOME/.bash_aliases"
 	if [ $? -eq 0 ]; then
 		echo_success "Deleted .bash_aliases"
@@ -51,6 +77,32 @@ else
 		echo_success "Successfully linked .bash_aliases"
 	else
 		echo_error "Failed to link .bash_aliases"
+	fi
+fi
+
+# .zsh_aliases
+if [ -e "$HOME/.zsh_aliases" ]; then
+	echo_danger "Deleting Existing .zsh_aliases"
+	rm "$HOME/.zsh_aliases"
+	if [ $? -eq 0 ]; then
+		echo_success "Deleted .zsh_aliases"
+	else
+		echo_error "Failed to delete .zsh_aliases"
+	fi
+	echo_info "Linking .zsh_aliases"
+	ln -s "$HOME/.dotfiles/dot/.zsh_aliases" "$HOME/.zsh_aliases"
+	if [ $? -eq 0 ]; then
+		echo_success "Successfully linked .zsh_aliases"
+	else
+		echo_error "Failed to link .zsh_aliases"
+	fi
+else
+	echo_info "Linking .zsh_aliases"
+	ln -s "$HOME/.dotfiles/dot/.zsh_aliases" "$HOME/.zsh_aliases"
+	if [ $? -eq 0 ]; then
+		echo_success "Successfully linked .zsh_aliases"
+	else
+		echo_error "Failed to link .zsh_aliases"
 	fi
 fi
 
