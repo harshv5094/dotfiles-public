@@ -1,4 +1,5 @@
 brew "git"
+brew "zoxide"
 brew "gh"
 brew "bat"
 brew "eza"
