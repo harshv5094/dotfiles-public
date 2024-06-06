@@ -64,7 +64,7 @@ source ~/.config/fish/alias.fish
 
 # Initializing zoxide
 if type -q zoxide
-    zoxide init fish | source
+    zoxide init --cmd cd fish | source
 end
 
 # bun
