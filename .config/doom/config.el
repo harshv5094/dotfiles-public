@@ -1,9 +1,6 @@
 (setq display-line-numbers-type 'relative)
 
-;;(setq doom-theme 'doom-tokyo-night)   ;; Tokyo Night
-;;(setq doom-theme 'doom-doom-one)      ;; Doom One (Default Theme)
-;;(setq doom-theme 'doom-oksolar-dark)  ;; Solarized Dark
-(setq doom-theme 'doom-material-dark) ;; Material Dark
+(setq doom-theme 'doom-tokyo-night)
 
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold :slant 'italic))
