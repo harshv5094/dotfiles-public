@@ -174,7 +174,6 @@ return {
 						grouped = true,
 						previewer = true,
 						initial_mode = "normal",
-						layout_config = { height = 25 },
 					})
 				end,
 				desc = "Telescope -> File Browser",
@@ -302,7 +301,18 @@ return {
 	},
 
 	-- Tailwind Colorizer
-	{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		dependencies = {
+			"hrsh7th/nvim-cmp",
+		},
+		event = "BufReadPre",
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	},
 
 	{
 		"theprimeagen/vim-be-good",
