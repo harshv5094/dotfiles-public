@@ -8,7 +8,6 @@ fi
 
 if command -v eza &>/dev/null; then
 	alias ll="eza -l -g --icons --header"
-	alias ls="eza -g --icons"
 	alias la="ll -a"
 fi
 

@@ -16,7 +16,6 @@ alias ll "ls -l"
 alias g git
 command -qv nvim && alias vim nvim
 
-
 set -gx EDITOR nvim
 
 set -gx PATH bin $PATH
