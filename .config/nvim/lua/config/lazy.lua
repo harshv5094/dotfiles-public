@@ -35,6 +35,7 @@ lazy.setup({
 		{ import = "lazyvim.plugins.extras.lang.yaml" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "lazyvim.plugins.extras.dap.nlua" },
 		{ import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.util.dot" },
 		-- { import = "lazyvim.plugins.extras.lang.docker" },
