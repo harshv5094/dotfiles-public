@@ -268,12 +268,6 @@ return {
 
 	-- Color Highlighter
 	{
-		"echasnovski/mini.hipatterns",
-		event = "BufReadPre",
-		enabled = false,
-	},
-
-	{
 		"norcalli/nvim-colorizer.lua",
 		event = "BufReadPre",
 		config = function()
