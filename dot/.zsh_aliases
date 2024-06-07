@@ -8,7 +8,7 @@ fi
 
 if command -v eza &>/dev/null; then
 	alias ll="eza -l -g --icons --header"
-	alias la="ll -a"
+	alias lla="ll -a"
 fi
 
 if command -v lazygit &>/dev/null; then
