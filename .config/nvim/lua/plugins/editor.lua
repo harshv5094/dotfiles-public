@@ -1,4 +1,3 @@
-local filetype = require("vim.filetype")
 return {
 
 	-- { "nvim-neo-tree/neo-tree.nvim", enabled = false },
@@ -134,7 +133,7 @@ return {
 				desc = "Telescope -> Open Buffers",
 			},
 			{
-				";t",
+				";h",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.help_tags()
@@ -198,9 +197,10 @@ return {
 			})
 			opts.extensions = {
 				file_browser = {
-					theme = "dropdown",
+					theme = "ivy",
 					-- disables netrw and use telescope-file-browser in its place
 					hijack_netrw = true,
+					hidden = { file_browser = false, folder_browser = false },
 					mappings = {
 						-- your custom insert mode mappings
 						["n"] = {
