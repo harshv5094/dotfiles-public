@@ -6,6 +6,9 @@ return {
 			vim.list_extend(opts.ensure_installed, {
 				"stylua",
 				"taplo",
+				"clangd",
+				"clang-format",
+				"codelldb",
 				"gopls",
 				"pyright",
 				"selene",
