@@ -78,10 +78,6 @@ keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
-keymap.set("n", "<leader>r", function()
-	require("harsh.hsl").replaceHexWithHSL()
-end, { desc = "replaceHexWithHSL" })
-
 keymap.set("n", "<leader>i", function()
 	require("harsh.lsp").toggleInlayHints()
 end, { desc = "toggleInlayHints" })
