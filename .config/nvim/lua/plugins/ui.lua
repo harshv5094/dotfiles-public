@@ -1,4 +1,5 @@
 return {
+
 	-- messages, cmdline and the popupmenu
 	{
 		"folke/noice.nvim",
