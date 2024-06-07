@@ -172,7 +172,7 @@ return {
 						respect_gitignore = false,
 						hidden = true,
 						grouped = true,
-						previewer = false,
+						previewer = true,
 						initial_mode = "normal",
 						layout_config = { height = 25 },
 					})
@@ -200,7 +200,6 @@ return {
 					theme = "ivy",
 					-- disables netrw and use telescope-file-browser in its place
 					hijack_netrw = true,
-					hidden = { file_browser = false, folder_browser = false },
 					mappings = {
 						-- your custom insert mode mappings
 						["n"] = {
