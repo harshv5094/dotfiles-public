@@ -12,7 +12,7 @@ return {
 					comments = { italic = true },
 					-- Background styles. Can be "dark", "transparent" or "normal"
 					sidebars = "transparent", -- style for sidebars, see below
-					floats = "dark", -- style for floating windows
+					floats = "transparent", -- style for floating windows
 					lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
 				},
 			}
