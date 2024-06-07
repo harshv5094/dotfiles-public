@@ -267,7 +267,6 @@ return {
 		},
 	},
 
-	--TODO: Setting up color hightlighting plugin
 	-- Color Highlighter
 	{
 		"echasnovski/mini.hipatterns",
