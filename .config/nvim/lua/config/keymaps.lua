@@ -22,10 +22,6 @@ keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 -- vim.keymap.set("c", "w!!", "w !sudo tee > /dev/null %", { silent = true, desc = "Write as Sudo" })
 
--- Disable continuations
-keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
-keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
-
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
