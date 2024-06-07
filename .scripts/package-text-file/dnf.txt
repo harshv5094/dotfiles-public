@@ -28,3 +28,4 @@ ufw
 yt-dlp
 emacs
 libtool
+pass

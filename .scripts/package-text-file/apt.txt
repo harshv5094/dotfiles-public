@@ -25,3 +25,4 @@ pcmanfm
 apt-transport-https
 gnome-power-manager
 gparted
+pass
