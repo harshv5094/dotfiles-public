@@ -27,6 +27,8 @@
 - [[#mouse-support][Mouse Support]]
 - [[#minimap][Minimap]]
 - [[#neotree][Neotree]]
+- [[#obsidian-plugin][Obsidian Plugin]]
+  - [[#directory-setup][Directory Setup]]
 - [[#org-mode][ORG MODE]]
   - [[#org-agenda][Org Agenda]]
   - [[#org-journal][Org Journal]]
@@ -287,6 +289,22 @@ Since Doom Emacs uses `SPC t` for `toggle` keybindings, I used `SPC t n` for tog
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
 #+end_src
+
+* Obsidian Plugin
+I'm setting up =obsidian.el= plugin in my emacs so I can use obsidian within emacs
+
+** Directory Setup
+#+begin_src emacs-lisp
+(use-package obsidian
+  :ensure t
+  :demand t
+  :config
+  (obsidian-specify-path "~/Documents/Notebook")
+  )
+
+#+end_src
+
+
 
 * ORG MODE
 I'm wrapping most of this block in (after! org). Without this, my settings might be evaluated too early,

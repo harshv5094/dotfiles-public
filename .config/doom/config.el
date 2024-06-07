@@ -95,6 +95,13 @@
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
 
+(use-package obsidian
+  :ensure t
+  :demand t
+  :config
+  (obsidian-specify-path "~/Documents/Notebook")
+  )
+
 (map! :leader
       :desc "Org babel Tangle" "\\ B" #'org-babel-tangle)
 

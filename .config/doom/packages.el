@@ -58,3 +58,4 @@
 (package! rainbow-mode)
 (package! peep-dired)
 (package! all-the-icons-dired)
+(package! obsidian)
