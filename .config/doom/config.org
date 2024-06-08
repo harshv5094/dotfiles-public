@@ -29,6 +29,7 @@
 - [[#neotree][Neotree]]
 - [[#obsidian-plugin][Obsidian Plugin]]
   - [[#directory-setup][Directory Setup]]
+  - [[#basic-keymaps-for-obsidianel][Basic Keymaps for =obsidian.el=]]
 - [[#org-mode][ORG MODE]]
   - [[#org-agenda][Org Agenda]]
   - [[#org-journal][Org Journal]]
@@ -301,9 +302,33 @@ I'm setting up =obsidian.el= plugin in my emacs so I can use obsidian within ema
   :config
   (obsidian-specify-path "~/Documents/Notebook")
   )
-
 #+end_src
 
+** Basic Keymaps for =obsidian.el=
+
+Since there is no keybindings associated with =SPC O=, I'm using it for my obsidian keybindings
+
+| COMMANDS                 | DESCRIPTION                       | KEYBINDINGS |
+|--------------------------+-----------------------------------+-------------|
+| obsidian-insert-link     | /Insert Markdown Link In Obsidian/  | SPC O l     |
+| obsidian-insert-wikilink | /Insert a link in wikilink format/  | SPC O w     |
+| obsidian-jump            | /Jump Between Notes/                | SPC O j     |
+| obsidian-capture         | /Creating new notes/                | SPC O n     |
+| obsidian-search          | /Searching notes in Obsidian Vault/ | SPC O s     |
+| obsidian-tag-find        | /Finding all notes by tag/          | SPC O t     |
+| obsidian-move-file       | /Move note to another folder/       | SPC O m     |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("O" . "Obsidian")
+       :desc "obsidian-insert-link" "l" #'obsidian-insert-link
+       :desc "obsidian-insert-wikilink" "w" #'obsidian-insert-wikilink
+       :desc "obsidian-jump" "j" #'obsidian-jump
+       :desc "obsidian-capture" "n" #'obsidian-capture
+       :desc "obsidian-search" "s" #'obsidian-search
+       :desc "obsidian-tag-find" "t" #'obsidian-tag-find
+       :desc "obsidian-move-file" "m" #'obsidian-move-file))
+#+end_src
 
 
 * ORG MODE

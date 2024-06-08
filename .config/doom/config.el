@@ -103,6 +103,16 @@
   )
 
 (map! :leader
+      (:prefix ("O" . "Obsidian")
+       :desc "obsidian-insert-link" "l" #'obsidian-insert-link
+       :desc "obsidian-insert-wikilink" "w" #'obsidian-insert-wikilink
+       :desc "obsidian-jump" "j" #'obsidian-jump
+       :desc "obsidian-capture" "n" #'obsidian-capture
+       :desc "obsidian-search" "s" #'obsidian-search
+       :desc "obsidian-tag-find" "t" #'obsidian-tag-find
+       :desc "obsidian-move-file" "m" #'obsidian-move-file))
+
+(map! :leader
       :desc "Org babel Tangle" "\\ B" #'org-babel-tangle)
 
 (after! org
