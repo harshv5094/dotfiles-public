@@ -42,9 +42,18 @@ fetch_status = true
 commit_icon = "@"
 fetch_upstream_icon = true
 
+# Right Side Prompt
 [[blocks]]
 type = 'rprompt'
 overflow = 'hidden'
+
+# User Name Segment
+[[blocks.segments]]
+type = 'session'
+style = 'plain'
+background = 'transparent'
+foreground = '#ff757f'
+template = '{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }} '
 
 # Execution Time Segment
 [[blocks.segments]]
@@ -88,7 +97,3 @@ template = '❯'
 foreground = 'magenta'
 background = 'transparent'
 template = '❯❯ '
-
-[pallet]
-red = "#ff757f"
-gray = "#6c6c6c"
