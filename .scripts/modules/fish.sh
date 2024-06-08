@@ -27,6 +27,7 @@ ln -s "$BASE_DIR/themes/tokyonight_day.theme" "$CONFIG_PATH/themes/"
 ln -s "$BASE_DIR/themes/tokyonight_moon.theme" "$CONFIG_PATH/themes/"
 ln -s "$BASE_DIR/themes/tokyonight_night.theme" "$CONFIG_PATH/themes/"
 ln -s "$BASE_DIR/themes/tokyonight_storm.theme" "$CONFIG_PATH/themes/"
+cp -rf ~/.dotfiles/.scripts/modules/fish_variables ~/.config/fish/
 
 echo "Installing fisher..."
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
