@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Sets the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -16,10 +9,6 @@ fi
 
 # Source and load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-
-
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit ice lucid wait'0'
@@ -83,7 +72,7 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Initializing zoxide
 if [ -x "$(command -v zoxide)" ]; then
-	eval "$(zoxide init --cmd cd bash)"
+	eval "$(zoxide init --cmd cd zsh)"
 fi
 
 # Tokyonight night fzf theme
@@ -93,5 +82,7 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
 --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if command -v oh-my-posh &> /dev/null; then
+  eval "$(oh-my-posh init zsh --config "$HOME/.config/themes/linux.omp.toml")"
+  # eval "$(oh-my-posh init zsh --config "$HOME/.config/themes/harsh.omp.toml")"
+fi

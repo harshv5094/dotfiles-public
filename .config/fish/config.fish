@@ -78,7 +78,8 @@ if test -d "/home/linuxbrew/.linuxbrew"
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 end
 
-# Execute colorscript by distrotube
-if command -q colorscript
-    colorscript -e six
+# Oh My Posh Initialization
+if test -d "$HOME/.config/themes/"
+    oh-my-posh init fish --config "$HOME/.config/themes/linux.omp.toml" | source
+    # oh-my-posh init fish --config "$HOME/.config/themes/harsh.omp.toml" | source
 end
