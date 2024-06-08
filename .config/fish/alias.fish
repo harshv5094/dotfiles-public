@@ -3,6 +3,7 @@ if type -q nvim
     alias fish-edit "nvim ~/.dotfiles/.config/fish/"
     alias tmux-edit "nvim ~/.dotfiles/.config/tmux/"
     alias script-edit "nvim ~/.dotfiles/.scripts/install.sh"
+    alias posh-edit "nvim ~/.dotfiles/.config/themes/linux.omp.toml"
 end
 
 if type -q lazygit
