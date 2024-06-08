@@ -8,7 +8,7 @@ function which ($command)
 $promptEditor = which "oh-my-posh"
 if($promptEditor)
 {
-  oh-my-posh init pwsh --config "~/.config/themes/harsh.omp.json" | Invoke-Expression
+  oh-my-posh init pwsh --config "~/.config/themes/harsh.omp.toml" | Invoke-Expression
 }
 
 # Changing Text Color for transparency
