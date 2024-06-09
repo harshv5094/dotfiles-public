@@ -1,6 +1,9 @@
 # Custom Theme Import
 import = ["~/.config/alacritty/lib/colors/tokyonight_night.toml"]
 
+[env]
+WINIT_X11_SCALE_FACTOR = '1.0'
+
 [mouse]
 hide_when_typing = true
 bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
