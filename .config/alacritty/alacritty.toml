@@ -33,7 +33,7 @@ startup_mode = "maximized"
 save_to_clipboard = true
 
 [colors]
-transparent_background_colors = true
+#transparent_background_colors = true
 draw_bold_text_with_bright_colors = true
 
 [scrolling]
