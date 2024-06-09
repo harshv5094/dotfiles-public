@@ -73,11 +73,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # Doom Emacs
 set --export PATH $HOME/.config/emacs/bin/ $PATH
 
-# for Linuxbrew
-if test -d "/home/linuxbrew/.linuxbrew"
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-end
-
 # Oh My Posh Initialization
 if test -d "$HOME/.config/themes/"
     oh-my-posh init fish --config "$HOME/.config/themes/linux.omp.toml" | source
