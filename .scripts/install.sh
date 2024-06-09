@@ -29,6 +29,12 @@ function package_install() {
 		sudo nala install $(grep -vE "^\s*#" ~/.dotfiles/.scripts/package-text-file/apt.txt | tr "\n" " ")
 		return
 	fi
+
+	if command -v pacman &>/dev/null; then
+		echo_info "Installing pacman packages"
+		sudo pacman -S $(grep -vE "^\s*#" ~/.dotfiles/.scripts/package-text-file/pacman.txt | tr "\n" " ")
+		return
+	fi
 }
 
 function install-nix-packages() {
