@@ -1,8 +1,6 @@
 firefox
 github-cli
-hyprland
 bat
 eza
 ripgrep
 fd
-blueman
