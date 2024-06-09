@@ -107,7 +107,7 @@ return {
 		},
 	},
 
-	-- filename
+	-- top right filename
 	{
 		"b0o/incline.nvim",
 		dependencies = { "folke/tokyonight.nvim" },
@@ -118,7 +118,7 @@ return {
 			require("incline").setup({
 				highlight = {
 					groups = {
-						InclineNormalNC = { guibg = colors.black, guifg = colors.red },
+						InclineNormalNC = { guibg = colors.green, guifg = colors.black },
 						InclineNormal = { guifg = colors.black, guibg = colors.red },
 					},
 				},
@@ -139,6 +139,7 @@ return {
 		end,
 	},
 
+	-- Zen Mode 🏡
 	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
@@ -152,6 +153,7 @@ return {
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
 	},
 
+	-- Dashboard
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
