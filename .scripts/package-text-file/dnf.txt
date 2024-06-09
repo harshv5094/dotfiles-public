@@ -3,6 +3,7 @@ gh
 fish
 zsh
 neovim
+transmission
 gnome-tweaks
 make
 ripgrep
