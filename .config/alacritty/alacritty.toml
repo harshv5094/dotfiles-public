@@ -1,15 +1,41 @@
-import = [
-  "~/.config/alacritty/lib/window.toml",
-  "~/.config/alacritty/lib/font.toml",
-  "~/.config/alacritty/lib/colors/tokyonight_night.toml",
-]
-
-# Enable clipboard support
-selection.save_to_clipboard = true
+# Custom Theme Import
+import = ["~/.config/alacritty/lib/colors/tokyonight_night.toml"]
 
 [mouse]
 hide_when_typing = true
 bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
 
 [cursor]
-style = { shape = "Block", blinking = "Always" }
+style = { shape = "Beam", blinking = "Always" }
+blink_interval = 500
+blink_timeout = 5
+unfocused_hollow = true
+
+[terminal]
+osc52 = "CopyPaste"
+
+[font]
+normal = { family = "JetBrainsMono NF", style = "SemiBold" }
+bold = { family = "JetBrainsMono NF", style = "Bold" }
+italic = { family = "JetBrainsMono NF", style = "SemiBold Italic" }
+bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+size = 11.8
+
+[window]
+opacity = 0.8
+blur = true
+padding = { x = 10, y = 8 }
+dynamic_padding = true
+decorations = "full"
+startup_mode = "maximized"
+
+[selection]
+save_to_clipboard = true
+
+[colors]
+transparent_background_colors = true
+draw_bold_text_with_bright_colors = true
+
+[scrolling]
+history = 10000
+multiplier = 3
