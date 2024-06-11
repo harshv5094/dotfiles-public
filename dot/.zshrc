@@ -22,6 +22,14 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::fzf
+zinit snippet OMZP::golang
+zinit snippet OMZP::history
+zinit snippet OMZP::kitty
+zinit snippet OMZP::nvm
+zinit snippet OMZP::npm
+zinit snippet OMZP::yarn
+zinit snippet OMZP::zoxide
 
 # Load autocompletions
 autoload -U compinit && compinit
