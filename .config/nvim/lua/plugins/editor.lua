@@ -77,14 +77,6 @@ return {
 		},
 		keys = {
 			{
-				";g",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.git_files()
-				end,
-				desc = "Telescope -> Git Files",
-			},
-			{
 				";F",
 				function()
 					local builtin = require("telescope.builtin")
@@ -102,17 +94,6 @@ return {
 					})
 				end,
 				desc = "Telescope -> Find Plugin File",
-			},
-			{
-				";f",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.find_files({
-						no_ignore = false,
-						hidden = true,
-					})
-				end,
-				desc = "Telescope -> Find Files",
 			},
 			{
 				";r",
@@ -149,14 +130,6 @@ return {
 				desc = "Telescope -> Resume Previous Buffer",
 			},
 			{
-				";s",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.treesitter()
-				end,
-				desc = "Telescope -> Treesitter Symbols (For Navigation)",
-			},
-			{
 				"sf",
 				function()
 					local telescope = require("telescope")
@@ -185,7 +158,6 @@ return {
 			local fb_actions = telescope.extensions.file_browser.actions
 
 			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
-				path_display = { "smart" },
 				wrap_results = true,
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },
