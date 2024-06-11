@@ -78,3 +78,7 @@ if test -d "$HOME/.config/themes/"
     oh-my-posh init fish --config "$HOME/.config/themes/linux.omp.toml" | source
     # oh-my-posh init fish --config "$HOME/.config/themes/harsh.omp.toml" | source
 end
+
+function save_history --on-event fish_preexec
+    history --save
+end

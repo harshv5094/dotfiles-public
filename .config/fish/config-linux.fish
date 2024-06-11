@@ -1,6 +1,7 @@
 if type -q eza
     alias ll "eza -l -g --icons --header"
     alias lla "ll -a"
+    alias count-dir "lla | wc -l"
 end
 
 
