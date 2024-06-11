@@ -54,7 +54,7 @@ type = 'session'
 style = 'plain'
 background = 'transparent'
 foreground = '#ff757f'
-template = '{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }} '
+template = '{{ if .SSHSession }}SSH:{{ end }}{{ .UserName }} '
 
 # Execution Time Segment
 [[blocks.segments]]
