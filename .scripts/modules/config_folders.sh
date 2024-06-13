@@ -3,6 +3,23 @@
 source ~/.dotfiles/.scripts/modules/colors.sh
 source ~/.dotfiles/.scripts/modules/cmd_check.sh
 
+# prompt_config
+if [ -d "$HOME/.config/themes" ]; then
+	echo_danger "Deleting Existing Oh My Posh Config Folder"
+
+	rm -rf "$HOME/.config/nvim"
+	delete_folder_check "Oh My Posh"
+	echo_info "Linking Oh My Posh Config Folder"
+
+	ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
+	link_folder_check "Oh My Posh"
+else
+	echo_info "Linking Oh My Posh Config Folder"
+
+	ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
+	link_folder_check "Oh My Posh"
+fi
+
 # nvim
 if [ -d "$HOME/.config/nvim" ]; then
 	echo_danger "Deleting Existing Nvim Config Folder"
