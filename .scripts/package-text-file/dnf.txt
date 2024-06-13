@@ -20,7 +20,6 @@ timeshift
 kitty
 alacritty
 btop
-fastfetch
 fd-find
 zoxide
 feh
