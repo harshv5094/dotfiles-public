@@ -51,27 +51,10 @@ function flatpak_package_install() {
 	fi
 }
 
-function setup_flatpak() {
-	if command -v nala &>/dev/null; then
-		echo_info "Installing nala packages"
-		sudo nala install flatpak
-
-		if command -v gnome-shell &>/dev/null; then
-			sudo nala install gnome-software-plugin-flatpak
-		fi
-		# Setting up flatpak repo
-		if command -v flatpak &>/dev/null; then
-			echo_info "Setting up flatpak repo"
-			flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-		fi
-	fi
-
-}
-
 function welcome() {
 	echo -e "Welcome to My Setup installation script."
 	PS3="Your Option: "
-	options=("Link My Dotfiles and Config Folders 🫥" "Install My Packages 📦" "Install Homebrew and its Packages 🍺" "Install Nix (Multi User) 🕸️" "Install Nix packages 🕸️" "Install Flatpak 💙" "Install Flatpak Packages 💙" "Run My Fish Configuration script 🐟")
+	options=("Link My Dotfiles and Config Folders 🫥" "Install My Packages 📦" "Install Homebrew and its Packages 🍺" "Install Nix (Multi User) 🕸️" "Install Nix packages 🕸️" "Install Flatpak Packages 💙" "Run My Fish Configuration script 🐟")
 
 	select SELECTED_OPTIONS in "${options[@]}"; do
 		case "${SELECTED_OPTIONS}" in
@@ -99,11 +82,6 @@ function welcome() {
 
 		"Install Nix packages 🕸️")
 			install-nix-packages
-			break
-			;;
-
-		"Install Flatpak 💙")
-			setup_flatpak
 			break
 			;;
 
