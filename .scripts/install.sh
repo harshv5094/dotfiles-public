@@ -30,11 +30,11 @@ function package_install() {
 		return
 	fi
 
-	if command -v pacman &>/dev/null; then
-		echo_info "Installing pacman packages"
-		sudo pacman -S $(grep -vE "^\s*#" ~/.dotfiles/.scripts/package-text-file/pacman.txt | tr "\n" " ")
-		return
-	fi
+	# if command -v pacman &>/dev/null; then
+	# 	echo_info "Installing pacman packages"
+	# 	sudo pacman -S $(grep -vE "^\s*#" ~/.dotfiles/.scripts/package-text-file/pacman.txt | tr "\n" " ")
+	# 	return
+	# fi
 }
 
 function install-nix-packages() {
