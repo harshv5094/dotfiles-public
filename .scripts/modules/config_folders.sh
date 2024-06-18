@@ -7,16 +7,16 @@ source ~/.dotfiles/.scripts/modules/cmd_check.sh
 if [ -d "$HOME/.config/themes" ]; then
 	echo_danger "Deleting Existing Oh My Posh Config Folder"
 
-	rm -rf "$HOME/.config/nvim"
+	rm -rf "$HOME/.config/themes/"
 	delete_folder_check "Oh My Posh"
 	echo_info "Linking Oh My Posh Config Folder"
 
-	ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
+	ln -s "$HOME/.dotfiles/.config/themes/" "$HOME/.config/"
 	link_folder_check "Oh My Posh"
 else
 	echo_info "Linking Oh My Posh Config Folder"
 
-	ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
+	ln -s "$HOME/.dotfiles/.config/themes/" "$HOME/.config/"
 	link_folder_check "Oh My Posh"
 fi
 
