@@ -24,6 +24,7 @@
   - [[#keybindings-within-dired-with-peep-dired-mode-enabled][Keybindings Within Dired With Peep-Dired-Mode Enabled]]
 - [[#emojis][Emojis]]
 - [[#changing-local-leader-key][Changing Local Leader Key]]
+- [[#insert-date][Insert Date]]
 - [[#mouse-support][Mouse Support]]
 - [[#minimap][Minimap]]
 - [[#markdown][Markdown]]
@@ -59,9 +60,22 @@ Here we are setting custom doom emacs theme for your setup
 
 ** Default font for DOOM Emacs
 Changing the default font of DOOM Emacs
+- doom-font’ – standard monospace font that is used for most things in Emacs.
+- ‘doom-variable-pitch-font’ – variable font which is useful in some Emacs plugins.
+- ‘doom-big-font’ – used in doom-big-font-mode; useful for presentations.
+- ‘font-lock-comment-face’ – for comments.
+- ‘font-lock-keyword-face’ – for keywords with special significance like ‘setq’ in elisp.
+
 #+begin_src emacs-lisp
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold)
+      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'extra-bold)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold :slant 'italic))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 #+end_src
 
 ** Doom Modeline
@@ -249,6 +263,9 @@ Here we are setting local leader key
 #+begin_src emacs-lisp
 (setq doom-localleader-key "\\")
 #+end_src
+
+* Insert Date
+ome custom functions to insert the date.  The function ‘insert-todays-date’ can be used one of three different ways: (1) just the keybinding without the universal argument prefix, (2) with one universal argument prefix, or (3) with two universal argument prefixes.  The universal argument prefix is ‘SPC-u’ in Doom Emacs (C-u in standard GNU Emacs).  The function ‘insert-any-date’ only outputs to one format, which is the same format as ‘insert-todays-date’ without a prefix.
 
 * Mouse Support
 Adding mouse support in the terminal version of the emacs
