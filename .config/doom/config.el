@@ -86,7 +86,21 @@
       (:prefix ("t" . "toggle")
        :desc "Toggle minimap-mode" "m" #'minimap-mode))
 
+(defun hv/markdown-colors-doom-one ()
+  "Enable Doom One colors for Markdown headers."
+  (interactive)
+  (require 'markdown-mode) ; Ensure Markdown mode is loaded
+  (dolist
+      (face
+       '((markdown-header-face-1 1.6 "#51afef" ultra-bold)
+         (markdown-header-face-2 1.5 "#c678dd" extra-bold)
+         (markdown-header-face-3 1.4 "#98be65" bold)
+         (markdown-header-face-4 1.3 "#da8548" semi-bold)
+         (markdown-header-face-5 1.2 "#5699af" normal)
+         (markdown-header-face-6 1.1 "#a9a1e1" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face))))
 
+(hv/markdown-colors-doom-one)
 
 (after! neotree
   (setq neo-smart-open t
