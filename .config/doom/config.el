@@ -1,6 +1,6 @@
 (setq display-line-numbers-type 'relative)
 
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'doom-one)
 
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold :slant 'italic))
@@ -86,6 +86,8 @@
       (:prefix ("t" . "toggle")
        :desc "Toggle minimap-mode" "m" #'minimap-mode))
 
+
+
 (after! neotree
   (setq neo-smart-open t
         neo-window-fixed-size nil))
@@ -169,6 +171,25 @@
 
           (agenda "")
           (alltodo "")))))
+
+(defun hv/org-colors-doom-one ()
+  "Enable Doom One colors for Org headers."
+  (interactive)
+  (require 'org) ; Ensure Org mode is loaded
+  (dolist
+      (face
+       '((org-level-1 1.6 "#51afef" ultra-bold)
+         (org-level-2 1.5 "#c678dd" extra-bold)
+         (org-level-3 1.4 "#98be65" bold)
+         (org-level-4 1.3 "#da8548" semi-bold)
+         (org-level-5 1.2 "#5699af" normal)
+         (org-level-6 1.1 "#a9a1e1" normal)
+         (org-level-7 1.0 "#46d9ff" normal)
+         (org-level-8 0.9 "#ff6c6b" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(hv/org-colors-doom-one)
 
 (setq org-journal-dir "~/org/journal"
       org-journal-date-prefix "* "

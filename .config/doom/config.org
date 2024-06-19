@@ -26,12 +26,15 @@
 - [[#changing-local-leader-key][Changing Local Leader Key]]
 - [[#mouse-support][Mouse Support]]
 - [[#minimap][Minimap]]
+- [[#markdown][Markdown]]
+  - [[#font-header-adjustment][Font Header Adjustment]]
 - [[#neotree][Neotree]]
 - [[#obsidian-plugin][Obsidian Plugin]]
   - [[#directory-setup][Directory Setup]]
   - [[#basic-keymaps-for-obsidianel][Basic Keymaps for =obsidian.el=]]
 - [[#org-mode][ORG MODE]]
   - [[#org-agenda][Org Agenda]]
+  - [[#org-fonts][Org Fonts]]
   - [[#org-journal][Org Journal]]
 - [[#rainbow-mode][Rainbow Mode]]
 - [[#terminal-shells][Terminal Shells]]
@@ -51,7 +54,7 @@ Here we are setting relative line number as we setup in vim
 ** Custom Doom Emacs Theme
 Here we are setting custom doom emacs theme for your setup
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'doom-one)
 #+end_src
 
 ** Default font for DOOM Emacs
@@ -270,6 +273,14 @@ Be aware this minimap program does not work in Org documents.
        :desc "Toggle minimap-mode" "m" #'minimap-mode))
 #+end_src
 
+* Markdown
+
+** Font Header Adjustment
+Here we are adjusting the font size for markdown
+#+begin_src emacs-lisp
+
+#+end_src
+
 * Neotree
 Neotree is a file viewer. When you open neotree, it jumps to the current file thanks to neo-smart-open.
 The neo-window-fixed-size setting makes the neotree width be adjustable. Doom Emacs had no keybinding set for neotree.
@@ -369,6 +380,7 @@ init.el
 #+end_src
 
 ** Org Agenda
+Setting org agenda drive
 #+begin_src emacs-lisp
 (after! org
   (setq org-agenda-files '("~//gdrive:harshv5094@gmail.com:/My Drive/org/agenda.org")))
@@ -398,6 +410,29 @@ init.el
 
           (agenda "")
           (alltodo "")))))
+#+end_src
+
+** Org Fonts
+This emacs lisp code allow to set font size of org header
+#+begin_src emacs-lisp
+(defun hv/org-colors-doom-one ()
+  "Enable Doom One colors for Org headers."
+  (interactive)
+  (require 'org) ; Ensure Org mode is loaded
+  (dolist
+      (face
+       '((org-level-1 1.6 "#51afef" ultra-bold)
+         (org-level-2 1.5 "#c678dd" extra-bold)
+         (org-level-3 1.4 "#98be65" bold)
+         (org-level-4 1.3 "#da8548" semi-bold)
+         (org-level-5 1.2 "#5699af" normal)
+         (org-level-6 1.1 "#a9a1e1" normal)
+         (org-level-7 1.0 "#46d9ff" normal)
+         (org-level-8 0.9 "#ff6c6b" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(hv/org-colors-doom-one)
 #+end_src
 
 ** Org Journal
