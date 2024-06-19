@@ -158,7 +158,7 @@
              "CANCELLED"))))    ; Task has been cancelled
 
 (after! org
-  (setq org-agenda-files '("~//gdrive:harshv5094@gmail.com:/My Drive/org/agenda.org")))
+  (setq org-agenda-files '("~/org/agenda.org")))
 
 (setq
    org-fancy-priorities-list '("🟥" "🟧" "🟨")

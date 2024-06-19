@@ -398,7 +398,7 @@ init.el
 Setting org agenda drive
 #+begin_src emacs-lisp
 (after! org
-  (setq org-agenda-files '("~//gdrive:harshv5094@gmail.com:/My Drive/org/agenda.org")))
+  (setq org-agenda-files '("~/org/agenda.org")))
 
 (setq
    org-fancy-priorities-list '("🟥" "🟧" "🟨")
