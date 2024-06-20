@@ -41,7 +41,7 @@
 - [[#terminal-shells][Terminal Shells]]
 
 * About This Config
-This is my custom config I'm writing in doom emacs
+By using distrotube's basic structure, I've added my own spin in my configuration.
 
 * Basic Necessary Configuration
 This are the necessary configuration that I need in my config
@@ -513,11 +513,11 @@ Settings for the various shells and terminal emulators within Emacs.
       eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
 
 ;; Eshell Mapping
-;; (map! :leader
-;;       (:prefix ("e" . "Eshell")
-;;       :desc "Eshell"                 "s" #'eshell
-;;       :desc "Eshell popup toggle"    "t" #'+eshell/toggle
-;;       :desc "Counsel eshell history" "h" #'counsel-esh-history))
+(map! :leader
+      (:prefix ("e" . "Eshell")
+      :desc "Eshell"                 "s" #'eshell
+      :desc "Eshell popup toggle"    "t" #'+eshell/toggle
+      :desc "Counsel eshell history" "h" #'counsel-esh-history))
 
 ;; For Vterm Mapping
 (map! :leader

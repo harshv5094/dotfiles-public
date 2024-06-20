@@ -237,11 +237,11 @@
       eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
 
 ;; Eshell Mapping
-;; (map! :leader
-;;       (:prefix ("e" . "Eshell")
-;;       :desc "Eshell"                 "s" #'eshell
-;;       :desc "Eshell popup toggle"    "t" #'+eshell/toggle
-;;       :desc "Counsel eshell history" "h" #'counsel-esh-history))
+(map! :leader
+      (:prefix ("e" . "Eshell")
+      :desc "Eshell"                 "s" #'eshell
+      :desc "Eshell popup toggle"    "t" #'+eshell/toggle
+      :desc "Counsel eshell history" "h" #'counsel-esh-history))
 
 ;; For Vterm Mapping
 (map! :leader
