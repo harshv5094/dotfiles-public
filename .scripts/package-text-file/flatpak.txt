@@ -1,6 +1,6 @@
 org.mozilla.firefox
 org.mozilla.Thunderbird
-com.brave.Browser
+com.google.Chrome
 md.obsidian.Obsidian
 com.mattjakeman.ExtensionManager
 com.discordapp.Discord
