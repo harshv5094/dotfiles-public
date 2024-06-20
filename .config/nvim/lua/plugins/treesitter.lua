@@ -14,6 +14,7 @@ return {
 				-- "dockerfile",
 				"python",
 				"html",
+				"org",
 				"cpp",
 				"css",
 				"vimdoc",
