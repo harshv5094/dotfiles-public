@@ -29,3 +29,4 @@ yt-dlp
 emacs
 libtool
 pass
+cargo
