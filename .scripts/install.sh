@@ -11,6 +11,12 @@ function package_install() {
 			echo_info "Enabling lazygit copr"
 			sudo dnf copr enable atim/lazygit -y
 		fi
+		if command -v yazi &>/dev/null; then
+			echo_info "yazi copr is enabled"
+		else
+			echo_info "Enabling yazi copr"
+			sudo dnf copr enable victorvintorez/tilingtools -y
+		fi
 		sudo dnf makecache
 		sudo dnf install $(grep -vE "^\s*#" ~/.dotfiles/.scripts/package-text-file/dnf.txt | tr "\n" " ")
 		return
