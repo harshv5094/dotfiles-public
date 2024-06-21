@@ -6,3 +6,4 @@ com.mattjakeman.ExtensionManager
 com.discordapp.Discord
 org.libreoffice.LibreOffice
 com.github.tchx84.Flatseal
+com.valvesoftware.Steam
