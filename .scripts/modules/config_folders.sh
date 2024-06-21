@@ -20,6 +20,23 @@ else
 	link_folder_check "Oh My Posh"
 fi
 
+# bat
+if [ -d "$HOME/.config/bat/" ]; then
+	echo_danger "Deleting Existing bat Config Folder"
+	rm -rf "$HOME/.config/bat"
+
+	delete_folder_check "Bat"
+	echo_info "Linking Bat Config Folder"
+
+	ln -s "$HOME/.dotfiles/.config/bat/" "$HOME/.config/"
+	link_folder_check "Bat"
+else
+	echo_info "Linking Bat Config Folder"
+
+	ln -s "$HOME/.dotfiles/.config/bat/" "$HOME/.config/"
+	link_folder_check "Bat"
+fi
+
 # nvim
 if [ -d "$HOME/.config/nvim" ]; then
 	echo_danger "Deleting Existing Nvim Config Folder"

@@ -68,6 +68,8 @@ function welcome() {
 		"Link My Dotfiles and Config Folders 🫥")
 			~/.dotfiles/.scripts/modules/dotfiles.sh
 			~/.dotfiles/.scripts/modules/config_folders.sh
+			mkdir -p "$HOME/GitHub/"
+			git clone https://github.com/folke/tokyonight.nvim "$HOME/GitHub/tokyonight.nvim/"
 			break
 			;;
 
