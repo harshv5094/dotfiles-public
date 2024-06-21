@@ -6,8 +6,8 @@ source ~/.dotfiles/.scripts/modules/cmd_check.sh
 # prompt_config
 if [ -d "$HOME/.config/themes" ]; then
 	echo_danger "Deleting Existing Oh My Posh Config Folder"
-
 	rm -rf "$HOME/.config/themes/"
+
 	delete_folder_check "Oh My Posh"
 	echo_info "Linking Oh My Posh Config Folder"
 
@@ -137,10 +137,30 @@ if [ -e "$HOME/.config/btop/btop.conf" ]; then
 	ln -s "$HOME/.dotfiles/.config/btop/btop.conf" "$HOME/.config/btop/"
 	link_folder_check "Btop"
 else
-	echo_info "Linking Lazygit Config"
+	echo_info "Linking Btop Config"
 
 	mkdir -p "$HOME/.config/btop/"
 	ln -s "$HOME/.dotfiles/.config/btop/btop.conf" "$HOME/.config/btop/"
 
 	link_folder_check "Btop"
+fi
+
+# Yazi
+if [ -e "$HOME/.config/yazi/" ]; then
+	echo_danger "Deleting Existing Yazi Config"
+	rm -rf "$HOME/.config/yazi/"
+
+	delete_folder_check "yazi"
+	echo_info "Linking Yazi Config"
+
+	mkdir -p "$HOME/.config/yazi/"
+	ln -s "$HOME/.dotfiles/.config/yazi/" "$HOME/.config/"
+	link_folder_check "yazi"
+else
+	echo_info "Linking Yazi Config"
+
+	mkdir -p "$HOME/.config/yazi/"
+	ln -s "$HOME/.dotfiles/.config/yazi" "$HOME/.config/yazi"
+
+	link_folder_check "Yazi"
 fi
