@@ -74,9 +74,8 @@ set --export PATH $BUN_INSTALL/bin $PATH
 set --export PATH $HOME/.config/emacs/bin/ $PATH
 
 # Oh My Posh Initialization
-if test -d "$HOME/.config/themes/"
+if type -q oh-my-posh
     oh-my-posh init fish --config "$HOME/.config/themes/linux.omp.toml" | source
-    # oh-my-posh init fish --config "$HOME/.config/themes/harsh.omp.toml" | source
 end
 
 function save_history --on-event fish_preexec
