@@ -218,6 +218,21 @@
       org-journal-date-format "%B %d %Y (%A)"
       org-journal-file-format "%Y-%m-%d")
 
+(after! org
+  (setq org-roam-directory "~/Documents/Notebook/ORG"
+        org-roam-graph-view "/usr/bin/firefox"))
+(map! :leader
+      (:prefix ("n". "Custom Maps")))
+
+(map! :leader
+      (:prefix ("n r". "org-roam")
+       :desc "Completion at point" "c" #'completion-at-point
+       :desc "Find node" "f" #'org-roam-node-find
+       :desc "Show graph" "g" #'org-roam-graph
+       :desc "Insert node" "i" #'org-roam-node-insert
+       :desc "Capture to node" "n" #'org-roam-capture
+       :desc "Toggle roam buffer" "r" #'org-roam-buffer-toggle))
+
 (define-globalized-minor-mode global-rainbow-mode rainbow-mode
   (lambda ()
     (when (not (memq major-mode

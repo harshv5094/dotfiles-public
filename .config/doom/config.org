@@ -37,6 +37,7 @@
   - [[#org-agenda][Org Agenda]]
   - [[#org-fonts][Org Fonts]]
   - [[#org-journal][Org Journal]]
+  - [[#org-roam][Org Roam]]
 - [[#rainbow-mode][Rainbow Mode]]
 - [[#terminal-shells][Terminal Shells]]
 
@@ -475,6 +476,40 @@ This emacs lisp code allow to set font size of org header
       org-journal-date-format "%B %d %Y (%A)"
       org-journal-file-format "%Y-%m-%d")
 #+end_src
+
+** Org Roam
+[[https://github.com/org-roam/org-roam][Org-Roam]] is a plain-text Knowledge management system. Org-roam borrows principles from the =Zettelkasten= method, providing
+a solution for non-hierarchical note-taking. It should also work as a plug-and-play solution for anyone already using
+Org-Mode for their personal wiki.
+
+| COMMAND                | DESCRIPTION                        | KEYBINDING |
+|------------------------+------------------------------------+------------|
+| completion at point    | /Completion of node-insert at point/ | SPC n r c  |
+| org-roam-note-find     | /Find node or create a new one/      | SPC n r f  |
+| org-roam-graph         | /Show graph of all nodes/            | SPC n r g  |
+| org-roam-node-insert   | /Insert link to a node/              | SPC n r i  |
+| org-roam-capture       | /Capture to node/                    | SPC n r n  |
+| org-roam-buffer-toggle | /Toggle roam buffer/                 | SPC n r r  |
+
+#+begin_src emacs-lisp
+(after! org
+  (setq org-roam-directory "~/Documents/Notebook/ORG"
+        org-roam-graph-view "/usr/bin/firefox"))
+(map! :leader
+      (:prefix ("n". "Custom Maps")))
+
+(map! :leader
+      (:prefix ("n r". "org-roam")
+       :desc "Completion at point" "c" #'completion-at-point
+       :desc "Find node" "f" #'org-roam-node-find
+       :desc "Show graph" "g" #'org-roam-graph
+       :desc "Insert node" "i" #'org-roam-node-insert
+       :desc "Capture to node" "n" #'org-roam-capture
+       :desc "Toggle roam buffer" "r" #'org-roam-buffer-toggle))
+#+end_src
+
+#+RESULTS:
+: org-roam-buffer-toggle
 
 * Rainbow Mode
 Rainbow mode displays the actual color for any hex value color. It's such a nice feature that I wanted to turned on all the time,
