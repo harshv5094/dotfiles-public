@@ -27,6 +27,7 @@ gimp
 ufw
 yt-dlp
 emacs
+seahorse
 libtool
 pass
 cargo
