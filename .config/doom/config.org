@@ -538,21 +538,21 @@ Settings for the various shells and terminal emulators within Emacs.
 #+begin_src emacs-lisp
 (setq shell-file-name "/bin/fish"
       vterm-max-scrollback 5000)
-;; (setq eshell-rc-script "~/.config/doom/eshell/profile"
-;;       echell-aliases-file "~/.config/doom/eshell/aliases"
-;;       eshell-history-size 5000
-;;       eshell-buffer-maximum-lines 5000
-;;       eshell-hist-ignoredups t
-;;       eshell-scroll-to-bottom-on-input t
-;;       eshell-destroy-buffer-when-process-dies t
-;;       eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
+(setq eshell-rc-script "~/.config/doom/eshell/profile"
+      echell-aliases-file "~/.config/doom/eshell/aliases"
+      eshell-history-size 5000
+      eshell-buffer-maximum-lines 5000
+      eshell-hist-ignoredups t
+      eshell-scroll-to-bottom-on-input t
+      eshell-destroy-buffer-when-process-dies t
+      eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
 
 ;; Eshell Mapping
-;; (map! :leader
-;;       (:prefix ("e" . "Eshell")
-;;       :desc "Eshell"                 "s" #'eshell
-;;       :desc "Eshell popup toggle"    "t" #'+eshell/toggle
-;;       :desc "Counsel eshell history" "h" #'counsel-esh-history))
+(map! :leader
+      (:prefix ("e" . "Eshell")
+      :desc "Eshell"                 "s" #'eshell
+      :desc "Eshell popup toggle"    "t" #'+eshell/toggle
+      :desc "Counsel eshell history" "h" #'counsel-esh-history))
 
 ;; For Vterm Mapping
 (map! :leader
