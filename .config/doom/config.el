@@ -109,6 +109,11 @@
 
 (hv/markdown-colors-doom-one)
 
+(map! :leader
+      (:prefix ("m". "markdown")
+       :desc "Toggle Inline Image" "i" #'markdown-toggle-inline-images
+       :desc "Generate toc" "t" #'markdown-toc-generate-toc ))
+
 (after! neotree
   (setq neo-smart-open t
         neo-window-fixed-size nil))

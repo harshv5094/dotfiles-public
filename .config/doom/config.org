@@ -29,6 +29,7 @@
 - [[#minimap][Minimap]]
 - [[#markdown][Markdown]]
   - [[#font-header-adjustment][Font Header Adjustment]]
+  - [[#markdown-keybindings][Markdown Keybindings]]
 - [[#neotree][Neotree]]
 - [[#obsidian-plugin][Obsidian Plugin]]
   - [[#directory-setup][Directory Setup]]
@@ -313,6 +314,21 @@ Here we are adjusting the font size for markdown
 (hv/markdown-colors-doom-one)
 #+end_src
 
+** Markdown Keybindings
+Here are some markdown command keybindings. I'm using =SPC m= as my default keybinding
+
+| Commands                      | Description                            | Keybindings |
+|-------------------------------+----------------------------------------+-------------|
+| markdown-toggle-inline-images | /Toggles the inline images in markdown/  | SPC m i     |
+| markdown-toc-generate-toc     | /Generate Table of Contents in markdown/ | SPC m t     |
+|                               |                                        |             |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("m". "markdown")
+       :desc "Toggle Inline Image" "i" #'markdown-toggle-inline-images
+       :desc "Generate toc" "t" #'markdown-toc-generate-toc ))
+#+end_src
 
 * Neotree
 Neotree is a file viewer. When you open neotree, it jumps to the current file thanks to neo-smart-open.
@@ -507,9 +523,6 @@ Org-Mode for their personal wiki.
        :desc "Capture to node" "n" #'org-roam-capture
        :desc "Toggle roam buffer" "r" #'org-roam-buffer-toggle))
 #+end_src
-
-#+RESULTS:
-: org-roam-buffer-toggle
 
 * Rainbow Mode
 Rainbow mode displays the actual color for any hex value color. It's such a nice feature that I wanted to turned on all the time,
