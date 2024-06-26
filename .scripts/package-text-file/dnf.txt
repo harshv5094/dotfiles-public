@@ -32,3 +32,9 @@ libtool
 pass
 cargo
 yazi
+dunst
+copyq
+clipman
+polkit-gnome
+brightnessctl
+blueman
