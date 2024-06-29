@@ -32,7 +32,6 @@ set -gx PATH $GOPATH/bin $PATH
 # Cargo
 set --export PATH ~/.cargo/bin/ $PATH
 
-
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
     status --is-command-substitution; and return
@@ -59,11 +58,17 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
+# My custom aliases
 source ~/.config/fish/alias.fish
 
 # Initializing zoxide
 if type -q zoxide
     zoxide init --cmd cd fish | source
+end
+
+# Kitty Shell aliases
+if type -q kitty
+    alias icat="kitten icat"
 end
 
 # bun
