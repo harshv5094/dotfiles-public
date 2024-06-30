@@ -26,7 +26,7 @@ foreground = 'blue'
 template = '{{ .Path }} '
 
 [blocks.segments.properties]
-style = 'full'
+style = 'agnoster_short'
 
 # Git Segment
 [[blocks.segments]]
