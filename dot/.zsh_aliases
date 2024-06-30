@@ -19,9 +19,8 @@ if command -v bat &>/dev/null; then
 	alias os-info="bat /etc/os-release"
 fi
 
-
 if command -v kitty &>/dev/null; then
-	alias kitty="nvim ~/.dotfiles/.config/kitty"
+  alias icat="kitten icat"
 fi
 
 alias ide="~/.dotfiles/.scripts/ide.sh"

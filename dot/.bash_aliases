@@ -23,6 +23,10 @@ if command -v kitty &>/dev/null; then
 	alias kitty="nvim ~/.dotfiles/.config/kitty"
 fi
 
+if command -v kitty &>/dev/null; then
+	alias icat="kitten icat"
+fi
+
 alias ide="~/.dotfiles/.scripts/ide.sh"
 
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
