@@ -68,7 +68,7 @@ end
 
 # Kitty Shell aliases
 if type -q kitty
-    alias icat="kitten icat"
+    alias icat "kitten icat"
 end
 
 # bun
