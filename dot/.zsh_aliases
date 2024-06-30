@@ -19,18 +19,12 @@ if command -v bat &>/dev/null; then
 	alias os-info="bat /etc/os-release"
 fi
 
-if command -v htop &>/dev/null; then
-	alias top=htop
-fi
 
 if command -v kitty &>/dev/null; then
 	alias kitty="nvim ~/.dotfiles/.config/kitty"
 fi
 
 alias ide="~/.dotfiles/.scripts/ide.sh"
-
-alias ide="~/.dotfiles/.scripts/ide.sh"
-alias zoxide_weight="zoxide query -l -s | less"
 
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 alias clipboard="nvim ~/.local/share/clipman.json"

@@ -14,10 +14,6 @@ if type -q bat
     alias os-info "bat /etc/os-release"
 end
 
-if type -q htop
-    alias top htop
-end
-
 if type -q kitty
     alias kitty_config "nvim ~/.dotfiles/.config/kitty"
 end
