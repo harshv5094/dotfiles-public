@@ -28,8 +28,6 @@ alias security "sudo $HOME/.dotfiles/.scripts/modules/security.sh"
 # Source python in venv
 alias python-start "source ~/.venv/bin/activate.fish"
 
-alias nb "cd $HOME/Documents/Notebook/ && nvim ."
-
 alias temp_delete "sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 alias clipboard "nvim ~/.local/share/clipman.json"
 alias posh-install "curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- d /bin"
