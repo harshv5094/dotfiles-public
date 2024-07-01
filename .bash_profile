@@ -2,10 +2,7 @@
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+    . ~/.bashrc
 fi
 
 # User specific environment and startup programs
-
-# GitHub CLI autocompletion
-eval "$(gh completion -s bash)"

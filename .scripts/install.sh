@@ -60,14 +60,12 @@ function flatpak_package_install() {
 function welcome() {
 	echo -e "Welcome to My Setup installation script."
 	PS3="Your Option: "
-	options=("Link My Dotfiles and Config Folders 🫥" "Install My Packages 📦" "Install Homebrew and its Packages 🍺" "Install Nix (Multi User) 🕸️" "Install Nix packages 🕸️" "Install Flatpak Packages 💙" "Run My Fish Configuration script 🐟")
+	options=("Clone Necessary GitHub Repo 🫥" "Install My Packages 📦" "Install Homebrew and its Packages 🍺" "Install Nix (Multi User) 🕸️" "Install Nix packages 🕸️" "Install Flatpak Packages 💙" "Run My Fish Configuration script 🐟")
 
 	select SELECTED_OPTIONS in "${options[@]}"; do
 		case "${SELECTED_OPTIONS}" in
 
-		"Link My Dotfiles and Config Folders 🫥")
-			~/.dotfiles/.scripts/modules/dotfiles.sh
-			~/.dotfiles/.scripts/modules/config_folders.sh
+		"Clone Necessary GitHub Repo 🫥")
 			mkdir -p "$HOME/GitHub/"
 			git clone https://github.com/folke/tokyonight.nvim "$HOME/GitHub/tokyonight.nvim/"
 			break
