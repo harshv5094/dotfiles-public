@@ -70,10 +70,6 @@ keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
-keymap.set("n", "<leader>i", function()
-	require("harsh.lsp").toggleInlayHints()
-end, { desc = "toggleInlayHints" })
-
 -- Todo comments
 keymap.set("n", "]t", function()
 	require("todo-comments").jump_next()
