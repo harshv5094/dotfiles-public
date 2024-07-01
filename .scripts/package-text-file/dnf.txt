@@ -31,4 +31,3 @@ seahorse
 libtool
 pass
 cargo
-yazi
