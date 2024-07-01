@@ -60,8 +60,11 @@ function welcome() {
 		case "${SELECTED_OPTIONS}" in
 
 		"Clone Necessary GitHub Repo 🫥")
+			git clone https://github.com/x-motemen/ghq "$HOME"
 			mkdir -p "$HOME/GitHub/"
 			git clone https://github.com/folke/tokyonight.nvim "$HOME/GitHub/tokyonight.nvim/"
+			git clone https://github.com/peco/peco "$HOME/GitHub/"
+			git clone https://github.com/sxyazi/yazi "$HOME/GitHub/"
 			break
 			;;
 
