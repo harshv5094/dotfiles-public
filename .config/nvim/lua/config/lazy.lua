@@ -52,9 +52,7 @@ lazy.setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	dev = {
-		path = "~/.ghq/github.com",
-	},
+	install = { colorscheme = { "tokyonight", "habamax" } },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		cache = {
@@ -76,12 +74,4 @@ lazy.setup({
 			},
 		},
 	},
-	ui = {
-		custom_keys = {
-			["<localleader>d"] = function(plugin)
-				dd(plugin)
-			end,
-		},
-	},
-	debug = false,
 })
