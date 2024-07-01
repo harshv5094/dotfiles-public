@@ -1,7 +1,3 @@
-local discipline = require("harsh.discipline")
-
-discipline.cowboy()
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -75,7 +71,7 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 keymap.set("n", "<leader>i", function()
-	require("harsh.lsp").toggleInlayHints()
+	vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "toggleInlayHints" })
 
 -- Todo comments
