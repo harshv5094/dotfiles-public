@@ -71,7 +71,7 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 keymap.set("n", "<leader>i", function()
-	vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+	require("harsh.lsp").toggleInlayHints()
 end, { desc = "toggleInlayHints" })
 
 -- Todo comments
