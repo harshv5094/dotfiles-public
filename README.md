@@ -20,7 +20,7 @@ Some configuration needs nerd fonts to properly show icons. You can download the
 
 Just copy the line below and paste in terminal:
 
-⚠️ Please use the name `.dotfiles` for the directory and keep it in user home directory when you clone this repository. As many scripts path depends on this directory name
+⚠️ Please use the name `.dotfiles` for the directory and keep it in user home directory when you clone this repository. As many scripts path depends on this directory name. I'm using `GNU stow` to manage my symlinks. Use `stow --adopt .` command to create symlinks with existing files in backup. The fish config is still using my script to execute its symlink
 
 ```bash
   git clone https://github.com/harshv5094/dotfiles-public ~/.dotfiles
