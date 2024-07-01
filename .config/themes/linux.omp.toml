@@ -9,6 +9,14 @@ type = 'prompt'
 alignment = 'left'
 newline = true
 
+# Shell Segment
+[[blocks.segments]]
+type = "shell"
+style = "plain"
+background = 'transparent'
+foreground = '#c099ff'
+template = '{{ .Name }} '
+
 # Path Segment
 [[blocks.segments]]
 type = 'path'
@@ -39,15 +47,6 @@ fetch_upstream_icon = true
 [[blocks]]
 type = 'rprompt'
 overflow = 'hidden'
-
-
-# Shell Segment
-[[blocks.segments]]
-type = "shell"
-style = "plain"
-background = 'transparent'
-foreground = '#c099ff'
-template = '{{ .Name }} '
 
 # User Name Segment
 [[blocks.segments]]
