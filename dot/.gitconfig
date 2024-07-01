@@ -70,6 +70,3 @@
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
-[user]
-	name = harshv5094 (Fedora Personal PC)
-	email = harshv5094@gmail.com
