@@ -81,5 +81,6 @@ return {
 	-- Vim Kitty Syntax Highlight
 	{
 		"fladson/vim-kitty",
+		event = "VeryLazy",
 	},
 }
